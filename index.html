@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sujal Santosh Patil - Backend Developer portfolio focused on Node.js, Express, MySQL, JWT authentication, and scalable API design.">
+    <meta name="description" content="Sujal Patil — Backend Developer, Fresher 2026. Node.js, Express, MySQL, JWT authentication, and scalable REST API design.">
     <title>Sujal Patil | Backend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,6 +346,42 @@
             text-decoration: underline;
         }
 
+        /* Education section */
+        .education-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 26px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .education-card .edu-left strong {
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .education-card .edu-left span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .education-card .edu-right {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 5px 12px;
+            background: #fff;
+            white-space: nowrap;
+        }
+
         .bottom {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -425,6 +461,7 @@
             <div class="brand">SUJAL <span>PATIL</span></div>
             <nav class="nav">
                 <a href="#about">About</a>
+                <a href="#education">Education</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
@@ -469,6 +506,18 @@
                     </div>
                 </div>
             </aside>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="section" id="education">
+            <h2 class="section-title">Edu<span>cation</span></h2>
+            <div class="education-card">
+                <div class="edu-left">
+                    <strong>ARMIET, Mumbai University</strong>
+                    <span>B.E. Information Technology</span>
+                </div>
+                <div class="edu-right">Expected June 2026</div>
+            </div>
         </section>
 
         <section class="section">
@@ -520,16 +569,17 @@
             <div class="projects">
                 <article class="project">
                     <div class="project-top">
-                        <h3>civicDesk</h3>
+                        <h3>CivicDesk — Civic Complaint Management System</h3>
                         <span class="project-year">2024</span>
                     </div>
                     <p>
-                        End-to-end web platform for complaint registration, criminal record workflows, and
-                        investigation status tracking. Built with a backend-first architecture focused on auth,
-                        data integrity, and modular service boundaries.
+                        Role-based complaint portal where citizens file complaints with photo/video proof and
+                        police officers manage cases through a Kanban-style workflow — assigning officers and
+                        moving complaints across status columns. Built backend-first with auth, file handling,
+                        and modular service boundaries.
                     </p>
                     <ul>
-                        <li>Built JWT auth flow with registration/login, protected routes, and secure cookie strategy.</li>
+                        <li>Built JWT auth flow with role separation (citizen vs. officer), protected routes, and secure cookie strategy.</li>
                         <li>Designed normalized MySQL schema with foreign keys, UNIQUE and NOT NULL constraints, and cascading deletes.</li>
                         <li>Implemented Zod-based request validation to reject malformed input before controller logic.</li>
                     </ul>
@@ -543,7 +593,8 @@
                     </div>
                     <p>
                         Backend system to track job applications through stages such as Applied, Interviewing,
-                        Offer, and Rejected. API layer is complete and tested; frontend is in active development.
+                        Offer, and Rejected. Backend API fully built and tested via Postman; React frontend
+                        planned as next phase.
                     </p>
                     <ul>
                         <li>Built relational schema for users, companies, applications, and status history with timestamps.</li>
@@ -560,9 +611,9 @@
                 <article class="panel">
                     <h2 class="section-title">Why <span>Hire Me</span></h2>
                     <ul class="checklist">
-                        <li>I write backend code that is readable, testable, and easy to explain in detail.</li>
-                        <li>I focus on fundamentals first: auth security, clean schema design, and API boundaries.</li>
-                        <li>I practice problem solving daily and apply that discipline to real project implementation.</li>
+                        <li>Available for immediate joining post June 2026.</li>
+                        <li>Comfortable owning backend features end-to-end — schema design, auth, validation, and API layer.</li>
+                        <li>Actively solving DSA problems by topic — 202+ solved, currently covering DP and Graphs.</li>
                     </ul>
                 </article>
 
