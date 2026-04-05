@@ -3,9 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Sujal Santosh Patil - Backend Developer portfolio focused on Node.js, Express, MySQL, JWT authentication, and scalable API design.">
+    <title>Sujal Patil | Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4f1ea;
+            --ink: #1a1a1a;
+            --accent: #0f6f5c;
+            --accent-2: #b94f2d;
+            --surface: #fffdf8;
+            --line: #d7d0c2;
+            --muted: #5a564f;
+            --shadow: 0 16px 40px rgba(15, 17, 19, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 15% 5%, #ece5d8 0%, var(--bg) 42%),
+                radial-gradient(circle at 90% 80%, #ece2cf 0%, var(--bg) 35%);
+            color: var(--ink);
+            font-family: "Sora", "Segoe UI", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            backdrop-filter: blur(10px);
+            background: rgba(244, 241, 234, 0.82);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        }
+
+        .topbar-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            font-size: 1.05rem;
+        }
+
+        .brand span {
+            color: var(--accent-2);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 0.95rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--muted);
+            transition: color 0.25s ease;
+        }
+
+        .nav a:hover {
+            color: var(--ink);
+        }
+
+        .hero {
+            padding: 64px 0 28px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .hero-left {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 34px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: riseIn 0.8s ease both;
+        }
+
+        .hero-left::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -90px;
+            top: -90px;
+            background: radial-gradient(circle, rgba(15, 111, 92, 0.2), rgba(15, 111, 92, 0));
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            padding: 6px 10px;
+            border: 1px solid rgba(15, 111, 92, 0.28);
+            border-radius: 999px;
+            background: rgba(15, 111, 92, 0.08);
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 3vw + 1rem, 3.55rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+        }
+
+        .subline {
+            margin-top: 12px;
+            font-size: 1.02rem;
+            color: var(--muted);
+            max-width: 60ch;
+            line-height: 1.65;
+        }
+
+        .cta-row {
+            margin-top: 26px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            text-decoration: none;
+            font-weight: 700;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #f8fffc;
+            box-shadow: 0 8px 20px rgba(15, 111, 92, 0.25);
+        }
+
+        .btn-ghost {
+            border-color: var(--line);
+            background: #fffcf4;
+            color: var(--ink);
+        }
+
+        .hero-right {
+            display: grid;
+            gap: 14px;
+            animation: riseIn 0.9s ease both;
+        }
+
+        .metric-card {
+            background: linear-gradient(150deg, #fffdf8, #f9f4e8);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .metric-card h3 {
+            margin: 0;
+            font-size: 2.1rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .highlight-stack {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            padding: 6px 10px;
+            background: #fff;
+        }
+
+        .section {
+            padding: 26px 0;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: 1.52rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title span {
+            color: var(--accent-2);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .panel p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .skills-item {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px;
+            background: #fff;
+        }
+
+        .skills-item strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+        }
+
+        .skills-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .projects {
+            display: grid;
+            gap: 14px;
+        }
+
+        .project {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+            animation: riseIn 0.7s ease both;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .project h3 {
+            margin: 0;
+            font-size: 1.16rem;
+        }
+
+        .project-year {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: #fff;
+        }
+
+        .project p {
+            margin: 10px 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .project ul {
+            margin: 10px 0 0;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .project li {
+            margin: 6px 0;
+        }
+
+        .project a {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 18px;
+        }
+
+        .checklist {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .footer {
+            margin: 34px 0 22px;
+            border-top: 1px solid rgba(26, 26, 26, 0.12);
+            padding-top: 14px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 960px) {
+            .hero,
+            .two-col,
+            .bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 42px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .topbar-inner {
+                flex-direction: column;
+                justify-content: center;
+                padding: 12px 0;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-left,
+            .panel,
+            .project {
+                padding: 18px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    website under construction
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand">SUJAL <span>PATIL</span></div>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="about">
+            <article class="hero-left">
+                <div class="eyebrow">Backend Developer | Fresher 2026</div>
+                <h1>Building backend systems that are clean, secure, and easy to scale.</h1>
+                <p class="subline">
+                    I am Sujal Santosh Patil, a backend-focused developer with strong JavaScript fundamentals,
+                    hands-on REST API development, JWT authentication, and MySQL schema design. I am actively
+                    looking for a fresher backend role where I can own real engineering outcomes from day one.
+                </p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="mailto:sujalpatil3867@gmail.com">Hire Me for Backend Role</a>
+                    <a class="btn btn-ghost" href="https://github.com/Sujal-s-patil" target="_blank" rel="noopener noreferrer">View GitHub</a>
+                    <a class="btn btn-ghost" href="https://leetcode.com/u/sujalpatil3867" target="_blank" rel="noopener noreferrer">LeetCode Profile</a>
+                </div>
+            </article>
+
+            <aside class="hero-right">
+                <div class="metric-card">
+                    <h3 id="lc-solved">202+</h3>
+                    <p>LeetCode problems solved across core data structure and algorithm patterns.</p>
+                </div>
+                <div class="metric-card">
+                    <h3 id="lc-streak">72 Days</h3>
+                    <p>Longest daily solving streak with deliberate topic-by-topic backend problem discipline.</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Node.js + MySQL</h3>
+                    <p>Primary stack for production-style backend development and auth-secured APIs.</p>
+                    <div class="highlight-stack">
+                        <span class="chip">Express</span>
+                        <span class="chip">JWT</span>
+                        <span class="chip">bcrypt</span>
+                        <span class="chip">Zod</span>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Professional <span>Snapshot</span></h2>
+            <div class="two-col">
+                <article class="panel">
+                    <p>
+                        Backend-focused developer with strong JavaScript understanding including closures,
+                        async/await, event loop behavior, and prototype chain fundamentals. I build APIs with
+                        clear architecture, strict validation, and reliable authentication boundaries.
+                    </p>
+                </article>
+                <article class="panel">
+                    <p>
+                        I write code I can explain line by line. I am a fresher, but I ramp fast because my
+                        fundamentals are practical: API design, schema design, debugging flow, and disciplined
+                        problem solving through consistent coding practice.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="panel">
+                <div class="skills-grid">
+                    <div class="skills-item">
+                        <strong>Languages</strong>
+                        <span>JavaScript (Advanced): closures, async/await, event loop, prototype chain</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Backend</strong>
+                        <span>Node.js, Express.js, REST API design, JWT authentication, bcrypt, Zod validation</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Database</strong>
+                        <span>MySQL schema design, joins, normalization, constraints, ON DELETE CASCADE</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Tools</strong>
+                        <span>Git, GitHub, Postman, Linux (Pop!_OS), API testing and endpoint debugging</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <h2 class="section-title">Selected <span>Projects</span></h2>
+            <div class="projects">
+                <article class="project">
+                    <div class="project-top">
+                        <h3>Criminal Record Management System</h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p>
+                        End-to-end web platform for complaint registration, criminal record workflows, and
+                        investigation status tracking. Built with a backend-first architecture focused on auth,
+                        data integrity, and modular service boundaries.
+                    </p>
+                    <ul>
+                        <li>Built JWT auth flow with registration/login, protected routes, and secure cookie strategy.</li>
+                        <li>Designed normalized MySQL schema with foreign keys, UNIQUE and NOT NULL constraints, and cascading deletes.</li>
+                        <li>Implemented Zod-based request validation to reject malformed input before controller logic.</li>
+                    </ul>
+                    <p><a href="https://github.com/Sujal-s-patil/Criminal-Record-Management-System" target="_blank" rel="noopener noreferrer">View repository</a></p>
+                </article>
+
+                <article class="project">
+                    <div class="project-top">
+                        <h3>Job Application Tracker</h3>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <p>
+                        Backend system to track job applications through stages such as Applied, Interviewing,
+                        Offer, and Rejected. API layer is complete and tested; frontend is in active development.
+                    </p>
+                    <ul>
+                        <li>Built relational schema for users, companies, applications, and status history with timestamps.</li>
+                        <li>Implemented user-scoped JWT authorization to isolate each account's application records.</li>
+                        <li>Prepared full-stack pathway with React integration while keeping backend production ready.</li>
+                    </ul>
+                    <p><a href="https://github.com/Sujal-s-patil/job-application-tracker" target="_blank" rel="noopener noreferrer">View repository</a></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="bottom">
+                <article class="panel">
+                    <h2 class="section-title">Why <span>Hire Me</span></h2>
+                    <ul class="checklist">
+                        <li>I write backend code that is readable, testable, and easy to explain in detail.</li>
+                        <li>I focus on fundamentals first: auth security, clean schema design, and API boundaries.</li>
+                        <li>I practice problem solving daily and apply that discipline to real project implementation.</li>
+                    </ul>
+                </article>
+
+                <article class="panel" id="contact">
+                    <h2 class="section-title">Contact <span>Info</span></h2>
+                    <ul class="checklist">
+                        <li>Email: <a href="mailto:sujalpatil3867@gmail.com">sujalpatil3867@gmail.com</a></li>
+                        <li>Phone: <a href="tel:+919284344605">+91 92843 44605</a></li>
+                        <li>GitHub: <a href="https://github.com/Sujal-s-patil" target="_blank" rel="noopener noreferrer">github.com/Sujal-s-patil</a></li>
+                        <li>LeetCode: <a href="https://leetcode.com/u/sujalpatil3867" target="_blank" rel="noopener noreferrer">leetcode.com/u/sujalpatil3867</a></li>
+                        <li>LinkedIn: <a href="http://linkedin.com/in/sujal-s-patil" target="_blank" rel="noopener noreferrer">linkedin.com/in/sujal-s-patil</a></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div>Open to Backend Developer opportunities (Fresher, 2026).</div>
+            <div>&copy; <span id="year"></span> Sujal Santosh Patil</div>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("year").textContent = String(new Date().getFullYear());
+
+        async function loadLeetCodeStats() {
+            try {
+                const response = await fetch(`stats.json?t=${Date.now()}`);
+                if (!response.ok) {
+                    return;
+                }
+
+                const stats = await response.json();
+                const totalSolved = stats?.leetcode?.totalSolved;
+                const streak = stats?.leetcode?.streak;
+
+                if (Number.isFinite(totalSolved)) {
+                    document.getElementById("lc-solved").textContent = `${totalSolved}+`;
+                }
+
+                if (Number.isFinite(streak)) {
+                    document.getElementById("lc-streak").textContent = `${streak} Days`;
+                }
+            } catch (error) {
+                console.warn("LeetCode stats could not be loaded.", error);
+            }
+        }
+
+        loadLeetCodeStats();
+    </script>
 </body>
 </html>
