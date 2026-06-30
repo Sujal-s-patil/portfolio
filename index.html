@@ -475,9 +475,7 @@
                 <div class="eyebrow">Backend Developer | Fresher 2026</div>
                 <h1>Building backend systems that are clean, secure, and easy to scale.</h1>
                 <p class="subline">
-                    I am Sujal Santosh Patil, a backend-focused developer with strong JavaScript fundamentals,
-                    hands-on REST API development, JWT authentication, and MySQL schema design. I am actively
-                    looking for a fresher backend role where I can own real engineering outcomes from day one.
+                    I am Sujal Santosh Patil, a backend-focused developer from Bhiwandi (commuting distance to Mumbai). Strong fundamentals in JavaScript, Node.js/Express, REST API design with modular MVC architecture, JWT authentication with httpOnly cookies, Zod validation, bcrypt hashing, and MySQL schema design. Two production-style projects with real security implementation and DSA practice across 15+ topics. Looking for a fresher backend role where I can own real engineering outcomes from day one.
                 </p>
                 <div class="cta-row">
                     <a class="btn btn-primary" href="mailto:sujalpatil3867@gmail.com">Hire Me for Backend Role</a>
@@ -488,7 +486,7 @@
 
             <aside class="hero-right">
                 <div class="metric-card">
-                    <h3 id="lc-solved">202+</h3>
+                    <h3 id="lc-solved">373+</h3>
                     <p>LeetCode problems solved across core data structure and algorithm patterns.</p>
                 </div>
                 <div class="metric-card">
@@ -514,9 +512,9 @@
             <div class="education-card">
                 <div class="edu-left">
                     <strong>ARMIET, Mumbai University</strong>
-                    <span>B.E. Information Technology</span>
+                    <span>B.E. Information Technology — CGPI: 7.41 (upward trend: S3 6.39 → S8 8.05)</span>
                 </div>
-                <div class="edu-right">Expected June 2026</div>
+                <div class="edu-right">Graduated June 2026</div>
             </div>
         </section>
 
@@ -525,16 +523,12 @@
             <div class="two-col">
                 <article class="panel">
                     <p>
-                        Backend-focused developer with strong JavaScript understanding including closures,
-                        async/await, event loop behavior, and prototype chain fundamentals. I build APIs with
-                        clear architecture, strict validation, and reliable authentication boundaries.
+                        Backend-focused developer with strong JavaScript fundamentals — closures, async/await, event loop behavior, prototype chain, and ES Modules. I build modular REST APIs with role-based access control, strict input validation using Zod, and hardened authentication flows (JWT + httpOnly cookies). Comfortable with database schema design including normalization, foreign keys, denormalization trade-offs, and cascading deletes.
                     </p>
                 </article>
                 <article class="panel">
                     <p>
-                        I write code I can explain line by line. I am a fresher, but I ramp fast because my
-                        fundamentals are practical: API design, schema design, debugging flow, and disciplined
-                        problem solving through consistent coding practice.
+                        I build independently before seeking feedback. Two defensible full-stack projects with real security implementation (bcrypt hashing, rate limiting, CORS, Helmet middleware). Sustained daily DSA practice across 15+ topic areas — <span id="lc-solved1">242+</span> LeetCode problems solved, currently on a <span id="lc-streak1">97-day</span> streak.
                     </p>
                 </article>
             </div>
@@ -546,19 +540,27 @@
                 <div class="skills-grid">
                     <div class="skills-item">
                         <strong>Languages</strong>
-                        <span>JavaScript (Advanced): closures, async/await, event loop, prototype chain</span>
+                        <span>JavaScript (Advanced), SQL</span>
                     </div>
                     <div class="skills-item">
-                        <strong>Backend</strong>
-                        <span>Node.js, Express.js, REST API design, JWT authentication, bcrypt, Zod validation</span>
+                        <strong>Backend Stack</strong>
+                        <span>Node.js, Express.js, REST API (modular MVC), JWT (httpOnly cookies), ES Modules</span>
                     </div>
                     <div class="skills-item">
                         <strong>Database</strong>
-                        <span>MySQL schema design, joins, normalization, constraints, ON DELETE CASCADE</span>
+                        <span>MySQL: connection pooling, parameterized queries, schema normalization, join tables, FK constraints, denormalized caching</span>
                     </div>
                     <div class="skills-item">
-                        <strong>Tools</strong>
-                        <span>Git, GitHub, Postman, Linux (Pop!_OS), API testing and endpoint debugging</span>
+                        <strong>Security & Validation</strong>
+                        <span>bcrypt hashing, Zod validation (.strict()), JWT auth flows, rate limiting, CORS, Helmet middleware, input sanitization</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>DSA Topics (Practiced)</strong>
+                        <span>Arrays, Strings, Two Pointers, Hash Table, DFS, BFS, Stack, Linked List, Binary Tree, Binary Search, Sorting, Dynamic Programming, Graphs, Backtracking</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Tools & Environment</strong>
+                        <span>Git, GitHub, Postman, Linux (development), API testing, debugging, ES Modules</span>
                     </div>
                 </div>
             </div>
@@ -569,37 +571,40 @@
             <div class="projects">
                 <article class="project">
                     <div class="project-top">
-                        <h3>CivicDesk — Civic Complaint Management System</h3>
-                        <span class="project-year">2024</span>
+                        <h3>CivicDesk — Role-Based Civic Complaint Management System</h3>
+                        <span class="project-year">2025 — present (rewrite in progress)</span>
                     </div>
                     <p>
-                        Role-based complaint portal where citizens file complaints with photo/video proof and
-                        police officers manage cases through a Kanban-style workflow — assigning officers and
-                        moving complaints across status columns. Built backend-first with auth, file handling,
-                        and modular service boundaries.
+                        <strong>What it is:</strong> A platform that lets ordinary citizens file complaints with police — like a digital FIR system — and lets police officers manage and resolve those complaints from their own dashboard. Think of it as a bridge between the public and the police station, replacing in-person paperwork with a tracked digital workflow.
+                    </p>
+                    <p>
+                        Dual-frontend architecture with separate citizen and police-facing portals. Citizens file complaints with photo/video evidence; police officers manage cases through a Kanban-style workflow (Pending → In Progress → Resolved → Closed). Implements role-based access control, complaint lifecycle tracking, officer assignment, and evidence uploads.
                     </p>
                     <ul>
-                        <li>Built JWT auth flow with role separation (citizen vs. officer), protected routes, and secure cookie strategy.</li>
-                        <li>Designed normalized MySQL schema with foreign keys, UNIQUE and NOT NULL constraints, and cascading deletes.</li>
-                        <li>Implemented Zod-based request validation to reject malformed input before controller logic.</li>
+                        <li>JWT auth flow with role-based access control (citizen vs. officer), httpOnly cookies, protected endpoints, and secure authentication boundaries.</li>
+                        <li>Normalized MySQL schema: citizens/complaints/complaint_assignments join table, complaint_comments system, complaint_evidence dual foreign keys, denormalized is_busy cache on police table.</li>
+                        <li>Strict input validation: phone (VARCHAR(10) + regex), Aadhar (VARCHAR(12)), email format validation using Zod .strict() schemas. Injection-safe parameterized queries throughout.</li>
+                        <li>Modular MVC architecture with clean separation of concerns and meaningful error handling.</li>
                     </ul>
                     <p><a href="https://github.com/Sujal-s-patil/civicDesk" target="_blank" rel="noopener noreferrer">View repository</a></p>
                 </article>
 
                 <article class="project">
                     <div class="project-top">
-                        <h3>Job Application Tracker</h3>
-                        <span class="project-year">2025</span>
+                        <h3>Job Application Tracker — Full-Stack Application Management</h3>
+                        <span class="project-year">2026</span>
                     </div>
                     <p>
-                        Backend system to track job applications through stages such as Applied, Interviewing,
-                        Offer, and Rejected. Backend API fully built and tested via Postman; React frontend
-                        planned as next phase.
+                        <strong>What it is:</strong> A tool for job seekers to keep their applications organized in one place instead of a scattered spreadsheet — log every application, track which stage it's at (Applied, Interview, Accepted, Rejected), and attach notes at each stage so nothing falls through the cracks during a job search.
+                    </p>
+                    <p>
+                        Full-stack application tracking system. Backend API complete with 11 RESTful endpoints, role-based auth, and production-grade security. React frontend in progress. Track applications through stages: Applied → Interview → Accepted → Rejected with stage-specific notes.
                     </p>
                     <ul>
-                        <li>Built relational schema for users, companies, applications, and status history with timestamps.</li>
-                        <li>Implemented user-scoped JWT authorization to isolate each account's application records.</li>
-                        <li>Prepared full-stack pathway with React integration while keeping backend production ready.</li>
+                        <li>11 RESTful endpoints (POST/GET/PUT/DELETE/PATCH) with two-tier rate limiting: auth endpoints (10 req/15min) vs general API (100 req/15min). All Zod schemas use .strict() mode.</li>
+                        <li>JWT authentication (HS256, 24h expiry) with httpOnly cookies. Environment-aware secure/sameSite config (prod vs dev). User data isolation — every application query scoped to userId.</li>
+                        <li>bcrypt password hashing (12 salt rounds). Centralized error handling via createError factory pattern. Cascading deletes maintain referential integrity.</li>
+                        <li>Dynamic SQL query building while maintaining parameterization — zero injection risk. 100% ES Modules. Clean architecture: config/, controllers/, routes/, middleware/, schemas/, utils/, db/.</li>
                     </ul>
                     <p><a href="https://github.com/Sujal-s-patil/job-application-tracker" target="_blank" rel="noopener noreferrer">View repository</a></p>
                 </article>
@@ -611,9 +616,12 @@
                 <article class="panel">
                     <h2 class="section-title">Why <span>Hire Me</span></h2>
                     <ul class="checklist">
+                        <li>Builds independently before seeking feedback — strong self-sufficiency signal.</li>
+                        <li>Two defensible, full-stack projects with real security implementation (JWT, bcrypt, rate limiting, input validation) — not CRUD tutorials.</li>
+                        <li>Database design maturity: normalized schemas, join tables, FK constraints, denormalized caching where appropriate.</li>
+                        <li>Sustained daily DSA practice across 15+ topic areas. <span id="lc-solved2">242+</span> LeetCode problems solved.</li>
+                        <li>Upward academic trend (6.39 → 8.05 CGPI) showing growth trajectory despite weak start.</li>
                         <li>Available for immediate joining post June 2026.</li>
-                        <li>Comfortable owning backend features end-to-end — schema design, auth, validation, and API layer.</li>
-                        <li>Actively solving DSA problems by topic — 202+ solved, currently covering DP and Graphs.</li>
                     </ul>
                 </article>
 
@@ -650,11 +658,15 @@
                 const streak = stats?.leetcode?.streak;
 
                 if (Number.isFinite(totalSolved)) {
-                    document.getElementById("lc-solved").textContent = `${totalSolved}+`;
+                    const solvedText = `${totalSolved}+`;
+                    document.getElementById("lc-solved").textContent = solvedText;
+                    document.getElementById("lc-solved1").textContent = solvedText;
+                    document.getElementById("lc-solved2").textContent = solvedText;
                 }
 
                 if (Number.isFinite(streak)) {
                     document.getElementById("lc-streak").textContent = `${streak} Days`;
+                    document.getElementById("lc-streak1").textContent = `${streak}-day`;
                 }
             } catch (error) {
                 console.warn("LeetCode stats could not be loaded.", error);
